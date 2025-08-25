@@ -26,8 +26,8 @@ export default function SignIn() {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      // In v3, we'll need to implement toast differently
-      console.log('Sign in successful');
+      // Navigate to Dashboard
+      window.location.href = '/dashboard';
     }, 1000);
   };
 
@@ -76,12 +76,13 @@ export default function SignIn() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   size="lg"
+                  color="gray.600"
                 />
               </Field.Root>
 
               <Field.Root>
                 <Field.Label>Password</Field.Label>
-                <Box position="relative">
+                <Box position="relative" w="100%">
                   <Input
                     type={showPassword ? 'text' : 'password'}
                     value={password}
@@ -89,11 +90,13 @@ export default function SignIn() {
                     placeholder="Enter your password"
                     size="lg"
                     pr="12"
+                    color="gray.600"
                   />
                   <IconButton
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                     variant="ghost"
                     size="sm"
+                    color="white"
                     position="absolute"
                     right="2"
                     top="50%"
@@ -111,6 +114,7 @@ export default function SignIn() {
                 size="lg"
                 w="full"
                 loading={isLoading}
+                color="white"
               >
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
