@@ -38,9 +38,31 @@ export default function Transactions() {
 
   return (
     <Box p={8}>
-      <Heading size="lg" mb={8} color="gray.800">
-        Transactions
-      </Heading>
+      <Box
+        bg={bgColor}
+        p={6}
+        borderRadius="xl"
+        border="1px"
+        borderColor={borderColor}
+        boxShadow="sm"
+        mb={6}
+      >
+        <Heading size="lg" color="#17489D">
+          Transactions
+        </Heading>
+        <Text color="gray.600" fontSize="xs" fontWeight="regular">
+          {new Date().toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}{" "}
+          •{" "}
+          {new Date().toLocaleTimeString("en-GB", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </Text>
+      </Box>
 
       {/* Transactions Table */}
       <Box

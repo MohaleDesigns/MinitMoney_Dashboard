@@ -9,9 +9,12 @@ import {
   Link,
   IconButton,
   HStack,
+  Image,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import logo from '../assets/minit_money_logo.png';
+import background from '../assets/background.png';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -39,7 +42,10 @@ export default function SignIn() {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      bg="gray.50"
+      backgroundImage={`url(${background})`}
+      backgroundSize="cover"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
       px={4}
     >
       <Box
@@ -51,19 +57,21 @@ export default function SignIn() {
         p={8}
         border="1px"
         borderColor="gray.200"
+        backgroundColor="#17489D"
       >
         <VStack gap={6} align="stretch">
           {/* Header */}
           <Box textAlign="center">
-            <Heading size="lg" color="gray.800">
+          <Box px={12} mb={8}>
+          <Image src={logo} alt="MiniMoney" />
+          </Box>
+            <Heading size="lg" color="#ffffff">
               Welcome back
             </Heading>
-            <Text color="gray.600" mt={2}>
+            <Text color="#ffffff" mt={2}>
               Sign in to your account
             </Text>
           </Box>
-
-          <Box borderTop="1px" borderColor="gray.200" />
 
           {/* Email/Password Form */}
           <form onSubmit={handleSignIn}>
@@ -76,7 +84,7 @@ export default function SignIn() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   size="lg"
-                  color="gray.600"
+                  color="#cccccc"
                 />
               </Field.Root>
 
@@ -90,13 +98,14 @@ export default function SignIn() {
                     placeholder="Enter your password"
                     size="lg"
                     pr="12"
-                    color="gray.600"
+                    color="#cccccc"
                   />
                   <IconButton
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                     variant="ghost"
                     size="sm"
-                    color="white"
+                    color="#17489D"
+                    bg="#F4CE34"
                     position="absolute"
                     right="2"
                     top="50%"
@@ -114,7 +123,8 @@ export default function SignIn() {
                 size="lg"
                 w="full"
                 loading={isLoading}
-                color="white"
+                color="#17489D"
+                bg="#F4CE34"
               >
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
@@ -123,14 +133,14 @@ export default function SignIn() {
 
           {/* Footer Links */}
           <VStack gap={3} pt={4}>
-            <Link color="blue.500" fontSize="sm">
+            <Link color="#ffffff" fontSize="sm">
               Forgot your password?
             </Link>
             <HStack gap={1} fontSize="sm">
-              <Text color="gray.600">
+              <Text color="#ccccccc">
                 Don't have an account?
               </Text>
-              <Link color="blue.500" fontWeight="semibold">
+              <Link color="#ffffff" fontWeight="semibold">
                 Sign up
               </Link>
             </HStack>
